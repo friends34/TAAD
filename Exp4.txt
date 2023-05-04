@@ -1,0 +1,231 @@
+activitymain.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="false"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:text="Username"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="48dp" />
+
+        <EditText
+            android:id="@+id/Username"
+            android:layout_width="331dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Enter  username"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:text="Password"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="103dp" />
+
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="277dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:text="Address"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="164dp" />
+
+        <EditText
+            android:id="@+id/Address"
+            android:layout_width="277dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:text="Gender"
+            tools:ignore="MissingConstraints" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="277dp"
+            android:layout_height="46dp"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="140dp"
+                android:layout_height="46dp"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="138dp"
+                android:layout_height="match_parent"
+                android:text="Female" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:text="Age"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="291dp" />
+
+        <EditText
+            android:id="@+id/Age"
+            android:layout_width="277dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            tools:layout_editor_absoluteX="118dp"
+            tools:layout_editor_absoluteY="277dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:text="Date of Birth"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="353dp" />
+
+        <EditText
+            android:id="@+id/DoB"
+            android:layout_width="277dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="118dp"
+            tools:layout_editor_absoluteY="328dp" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView7"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="23dp"
+            android:text="State "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#0099FF" />
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_toRightOf="@+id/textView8"
+            />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="419dp" />
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+MainActivity.java
+
+package com.example.exp42;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Spinner;
+import android.widget.Toast;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+    private EditText name, postalAddress, email, age;
+    private Button submitButton;
+    private TextView resultText;
+    private RadioGroup gender;
+    Spinner sp;
+    String[] country = {"Andhra Pradesh", "Telangana", "Madhya Pradesh", "Gujarat", "Goa", "Tamil Nadu", "Karnataka", "Delhi"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Spinner spin = (Spinner) findViewById(R.id.spinner);
+        spin.setOnItemSelectedListener(this);
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,country);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin.setAdapter(aa);
+        name = findViewById(R.id.Username);
+        postalAddress = findViewById(R.id.Address);
+        age = findViewById(R.id.Age);
+        gender = findViewById(R.id.radioGroup);
+        submitButton = findViewById(R.id.button);
+        sp = findViewById(R.id.spinner);
+        resultText = findViewById(R.id.result);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RadioButton selectedGenderButton = findViewById(gender.getCheckedRadioButtonId());
+                resultText.setText("User Name: " + name.getText().toString() + "\n" +
+                        "Address: " + postalAddress.getText().toString() + "\n" +
+                        "Gender : " + selectedGenderButton.getText().toString() + "\n" +
+                        "Age: " + age.getText().toString() + "\n" + "State: " + sp.getSelectedItem().toString() + "\n");
+            }
+        });
+    }
+
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        Toast.makeText(getApplicationContext(), country[position], Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+}
